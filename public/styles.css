@@ -1,0 +1,615 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+    font-family: 'Space Grotesk';
+    font-weight: 500 !important;
+    font-size: 1em;
+    margin: 0%;
+    padding: 0%;
+    outline: 0cm;
+    border: 0cm;
+    list-style: none;
+    z-index: 1;
+}
+
+article.thank{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    margin-right: 10vw;
+}
+
+.Bottom div{
+    display: flex;
+    flex-direction: row;
+}
+
+.thank div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.thank div h1{
+    font-size: 2em;
+}
+
+.thank div p{
+    font-size: 1.1em;
+    color: hsl(279, 6%, 55%);
+}
+
+article.thank .confirm{
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+}
+
+article.thank img{
+    width: 80px;
+    height: auto;
+}
+
+
+@media screen and (max-width: 999px) {
+
+    article.thank{
+        margin-top: 40px;
+        padding: 30px;
+        min-width: calc(100vw - 60px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .thank div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .thank div h1{
+        font-size: 1.75em;
+    }
+
+    .thank div p{
+        font-size: 1em;
+        color: hsl(279, 6%, 55%);
+    }
+    
+    
+    html,body,.root {
+        width: 100% !important;
+        height: max-content;
+    }
+
+    .root_inner{
+        width: 100% !important;
+        min-height: 100%;
+        height: auto;
+        max-height: max-content;
+        padding-bottom: 10vh;
+    }
+
+    .cards{
+        position: static;
+        width: 100vw;
+        min-height: 240px;
+        background-image: url("./images/bg-main-mobile.png");
+        background-size: cover;
+    }
+
+    .card1, .card2{
+        position: relative;
+        border-radius: 10px;
+        max-width: 280px;
+        min-width: 280px;
+        min-height: 160px;
+        height: auto;
+    }
+
+    .card2 p{
+        width: fit-content;
+        position: relative;
+        left: 220px;
+        top: 68px;
+    }
+
+    .card1{
+        position: absolute;
+        top: 130px;
+        left: 15px;
+        background-image: url("./images/bg-card-front.png");
+        background-size: cover;
+        color: hsl(0, 0%, 100%);
+        z-index: 3;
+    }
+
+    .card1 .top{
+        padding: 20px;
+        padding-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card1 .top .cercle1{
+        width: 30px;
+        height: 30px;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 50%;
+    }
+
+    .card1 .top .cercle2{
+        width: 10px;
+        height: 10px;
+        border: 1px solid hsl(0, 0%, 100%);
+        background-color: transparent;
+        border-radius: 50%;
+    }
+
+    .card1 .bottom{
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .card1 .Bottom{
+        padding-top: 15px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card2{
+        position: absolute;
+        top: 34px;
+        right: 15px;
+        background-image: url("./images/bg-card-back.png");
+        background-size: cover;
+        color: hsl(0, 0%, 100%);
+        z-index: 2;
+    }
+
+    .details {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 90%;
+        padding-left: 5%;
+        gap: 20px;
+    }
+
+    input:hover {
+        border: 1px solid hsl(249, 99%, 64%);
+    }
+
+    input:focus {
+        color: hsl(278, 68%, 11%);
+        border: 1px solid hsl(278, 94%, 30%);
+    }
+
+    .details div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .eti {
+        color: hsl(278, 68%, 11%);
+        font-size: 13px;
+    }
+
+    input {
+        border: 1px solid hsl(270, 3%, 87%);
+        padding: 15px;
+        height: 10px;
+        border-radius: 10px;
+        font-size: 16px;
+        background-color: hsl(0, 0%, 100%) !important;
+    }
+
+    .exp input {
+        width: 60px;
+    }
+
+    .cvc input {
+        width: 90px;
+    }
+
+    input::placeholder {
+        margin-left: 10px;
+        color: hsl(279, 6%, 55%);
+        font-size: 16px;
+    }
+
+    .inputs {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+
+    .exp-cvc {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+
+    .error {
+        color: hsl(0, 100%, 66%);
+        display: none;
+    }
+
+
+    .confirm {
+        background-color: hsl(278, 68%, 11%);
+        color: hsl(0, 0%, 100%);
+        padding: 15px 20px 15px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 1200px) and (min-width : 1000px) {
+
+    html,body,.root {
+        width: 100% ;
+        max-height: max-content;
+        height: 100%;
+    }
+
+    .root_inner{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 140px;
+        width: 100% ;
+        min-height: 100%;
+        max-height: max-content;
+        height: auto;
+    }
+
+    .cards{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        min-height: 100vh;
+        width: 30vw;
+        background-image: url("./images/bg-main-mobile.png");
+        background-size: cover;
+    }
+
+    .card1, .card2{
+        position: relative;
+        border-radius: 10px;
+        max-width: 280px;
+        min-width: 280px;
+        min-height: 160px;
+        height: auto;
+    }
+
+    .card2 p{
+        width: fit-content;
+        position: relative;
+        left: 220px;
+        top: 68px;
+    }
+
+    .card1{
+        margin: 186px 0% 0% 160px;
+        background-image: url("./images/bg-card-front.png");
+        background-size: cover;
+        color: hsl(0, 0%, 100%);
+        z-index: 3;
+    }
+
+    .card1 .top{
+        padding: 20px;
+        padding-bottom: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .card1 .top .cercle1{
+        width: 30px;
+        height: 30px;
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 50%;
+    }
+
+    .card1 .top .cercle2{
+        width: 10px;
+        height: 10px;
+        border: 1px solid hsl(0, 0%, 100%);
+        background-color: transparent;
+        border-radius: 50%;
+    }
+
+    .card1 .bottom{
+        padding-left: 20px;
+        padding-bottom: 20px;
+    }
+
+    .card1 .Bottom{
+        padding-top: 15px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card2{
+        margin: 40px 0% 0% 260px;
+        background-image: url("./images/bg-card-back.png");
+        background-size: cover;
+        color: hsl(0, 0%, 100%);
+        z-index: 2;
+    }
+
+    .details {
+        margin-right: 10vw;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 30%;
+        height: 60%;
+    }
+
+    input:hover {
+        border: 1px solid hsl(249, 99%, 64%);
+    }
+
+    input:focus {
+        color: hsl(278, 68%, 11%);
+        border: 1px solid hsl(278, 94%, 30%);
+    }
+
+    .details div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .eti {
+        color: hsl(278, 68%, 11%);
+        font-size: 13px;
+    }
+
+    input {
+        border: 1px solid hsl(270, 3%, 87%);
+        padding: 15px;
+        height: 10px;
+        border-radius: 10px;
+        font-size: 16px;
+        background-color: hsl(0, 0%, 100%) ;
+    }
+
+    .exp input {
+        width: 60px;
+    }
+
+    .cvc input {
+        width: 90px;
+    }
+
+    input::placeholder {
+        margin-left: 10px;
+        color: hsl(279, 6%, 55%);
+        font-size: 16px;
+    }
+
+    .inputs {
+        flex-direction: row !important ;
+        justify-content: space-between;
+    }
+
+    .exp-cvc {
+        flex-direction: row  !important;
+        justify-content: space-between;
+    }
+
+
+    .error {
+        color: hsl(0, 100%, 66%);
+        display: none;
+    }
+
+
+    .confirm {
+        background-color: hsl(278, 68%, 11%);
+        color: hsl(0, 0%, 100%);
+        padding: 15px 20px 15px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (min-width: 1201px) {
+
+    article.thank{
+        padding: 30px;
+        min-width: 20vw;
+        margin-left: 60vw;
+        margin-bottom: 15vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 45px;
+    }   
+
+    .root,
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+    }
+
+    .root_inner {
+        width: 90%;
+        height: calc(100% - 186px - 186px);
+        display: flex;
+        align-items: center;
+        padding: 186px 10% 186px 0px;
+    }
+
+    .cards {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 30vw;
+        height: 100vh;
+        background-image: url("./images/bg-main-desktop.png");
+        background-size: cover;
+    }
+
+    .card1 {
+        margin: 186px 0% 0% 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 440px;
+        height: 240px;
+        background-image: url("./images/bg-card-front.png");
+        z-index: 2;
+        border-radius: 10px;
+        color: hsl(0, 0%, 100%);
+    }
+
+    .card2 {
+        margin: 40px 0% 0% 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 440px;
+        height: 240px;
+        background-image: url("./images/bg-card-back.png");
+        z-index: 2;
+        border-radius: 10px;
+        color: hsl(0, 0%, 100%);
+    }
+
+    .card1 .top {
+        padding: 25px 25px 0px 25px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .card1 .top .cercle1 {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: hsl(0, 0%, 100%);
+    }
+
+    .card1 .top .cercle2 {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid hsl(0, 0%, 100%);
+    }
+
+    .card1 .bottom {
+        padding: 0px 25px 25px 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        letter-spacing: 2px;
+    }
+
+    .card1 .bottom h1 {
+        font-size: 32px;
+    }
+
+    .card1 .Bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #cvc {
+        margin-top: 112px;
+        margin-left: 82%;
+        letter-spacing: 2px;
+        font-size: 13px;
+    }
+
+    .details {
+        margin-left: 60vw;
+        margin-top: 70px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 30%;
+        height: 60%;
+    }
+
+    input:hover {
+        border: 1px solid hsl(249, 99%, 64%);
+    }
+
+    input:focus {
+        color: hsl(278, 68%, 11%);
+        border: 1px solid hsl(278, 94%, 30%);
+    }
+
+    .details div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .eti {
+        color: hsl(278, 68%, 11%);
+        font-size: 13px;
+    }
+
+    input {
+        border: 1px solid hsl(270, 3%, 87%);
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 16px;
+        background-color: hsl(0, 0%, 100%) !important;
+    }
+
+    .exp input {
+        width: 60px;
+    }
+
+    .cvc input {
+        width: 90px;
+    }
+
+    input::placeholder {
+        margin-left: 10px;
+        color: hsl(279, 6%, 55%);
+        font-size: 16px;
+    }
+
+    .inputs {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+
+    .exp-cvc {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+
+    .error {
+        color: hsl(0, 100%, 66%);
+        display: none;
+    }
+
+
+    .confirm {
+        background-color: hsl(278, 68%, 11%);
+        color: hsl(0, 0%, 100%);
+        padding: 15px 20px 15px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="root">
+    <div class="root_inner">
+      <aside class="cards">
+
+        <div class="card1">
+          <div class="top">
+            <div class="cercle1"></div>
+            <div class="cercle2"></div>
+          </div>
+          <div class="bottom">
+            <h1 id="number">0000 0000 0000</h1>
+
+            <div class="Bottom">
+              <p id="name">Name Surname</p>
+              <div>
+                <p id="month">01</p>
+                <p>/</p>
+                <p id="year">01</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card2">
+          <p id="cvc">000</p>
+        </div>
+
+      </aside>
+      <form class="details" method="post" action="/thank.html">
+        <div class="name">
+          <label class="eti" for="">CARDHOLDER NAME</label>
+          <input maxlength="40" oninput="fillCard(event)" placeholder="e.g. Jane Appleseed" name="name" type="text">
+          <label for="" class="error"></label>
+        </div>
+        <div class="number">
+          <label class="eti" for="">CARD NUMBER</label>
+          <input maxlength="20"  oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);fillCard(event)" placeholder="e.g. 1234 5678 9123 0000" name="number" type="number">
+          <label for="" class="error"></label>
+        </div>
+        <div class="exp-cvc">
+          <div class="exp">
+            <label for="" class="eti">EXP. DATE (MM/YY)</label>
+            <div class="inputs">
+              <input maxlength="2" oninput="fillCard(event)" placeholder="MM" name="month" type="text">
+              <input maxlength="2" oninput="fillCard(event)" placeholder="YY" name="year" type="text">
+            </div>
+            <label for="" class="error"></label>
+          </div>
+          <div class="cvc">
+            <label for="" class="eti">CVC</label>
+            <input oninput="fillCard(event)" maxlength="3"" placeholder="e.g. 123" name="cvc" type="number">
+            <label for="" class="error"></label>
+          </div>
+        </div>
+
+        <button type="button" class="confirm">Confirm</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://unpkg.com/validator@latest/validator.min.js">
+  </script>
+
+  <script>
+    function fillCard(event){
+      document.getElementById(event.target.name).textContent = event.target.value
+    }
+
+    if (window.innerWidth < 1000) {
+      document.getElementsByClassName("card2")[0].style.height = getComputedStyle(document.getElementsByClassName("card1")[0]).height
+    }
+
+    document.getElementsByClassName("confirm")[0].addEventListener("click",(event)=>{
+      let test = true;
+
+      if (document.getElementsByName("name")[0].value.split(" ").length <= 1){
+        document.getElementsByName("name")[0].style.border = "1px solid hsl(0, 100%, 66%)"
+        document.getElementsByName("name")[0].parentElement.lastElementChild.style.display = "block";
+        document.getElementsByName("name")[0].parentElement.lastElementChild.textContent = "Invalid name and surname"
+©        test = false
+      }
+
+      else{
+        document.getElementsByName("name")[0].style.border = "1px solid hsl(270, 3%, 87%)"
+        document.getElementsByName("name")[0].parentElement.lastElementChild.style.display = "none";
+      }
+
+      if (!validator.isCreditCard(document.getElementsByName("number")[0].value)){
+        document.getElementsByName("number")[0].style.border = "1px solid hsl(0, 100%, 66%)"
+        document.getElementsByName("number")[0].parentElement.lastElementChild.style.display = "block";
+        document.getElementsByName("number")[0].parentElement.lastElementChild.textContent = "Invalid credit card"
+        test = false
+      }
+
+      else{
+        document.getElementsByName("number")[0].style.border = "1px solid hsl(270, 3%, 87%)"
+        document.getElementsByName("number")[0].parentElement.lastElementChild.style.display = "none";
+      }
+
+      if(!validator.isDate(new Date(`${document.getElementsByName('month')[0].value}/1/20${document.getElementsByName('year')[0].value}`)) || 
+          document.getElementsByName('month')[0].value === "" || document.getElementsByName('year')[0].value === "" || 
+          new Date(`${document.getElementsByName('month')[0].value}/1/20${document.getElementsByName('year')[0].value}`) - new Date() < 0 || 
+          document.getElementsByName('year')[0].value.length !== 2){
+        document.getElementsByName("year")[0].style.border = "1px solid hsl(0, 100%, 66%)"
+        document.getElementsByName("month")[0].style.border = "1px solid hsl(0, 100%, 66%)"
+        document.getElementsByName("month")[0].parentElement.parentElement.lastElementChild.style.display = "block";
+        document.getElementsByName("month")[0].parentElement.parentElement.lastElementChild.textContent = "Invalid date"
+        test = false
+      }
+
+      else{
+        document.getElementsByName("year")[0].style.border = "1px solid hsl(270, 3%, 87%)"
+        document.getElementsByName("month")[0].style.border = "1px solid hsl(270, 3%, 87%)"
+        document.getElementsByName("month")[0].parentElement.parentElement.lastElementChild.style.display = "none";
+      }
+
+
+      if(isNaN(parseInt(document.getElementsByName('cvc')[0].value))){
+        document.getElementsByName("cvc")[0].style.border = "1px solid hsl(0, 100%, 66%)"
+        document.getElementsByName("cvc")[0].parentElement.lastElementChild.style.display = "block";
+        document.getElementsByName("cvc")[0].parentElement.lastElementChild.textContent = "Invalid cvc"
+        test = false
+      }
+
+      else{
+        document.getElementsByName("cvc")[0].style.border = "1px solid hsl(270, 3%, 87%)"
+        document.getElementsByName("cvc")[0].parentElement.lastElementChild.style.display = "none";
+      }
+
+      test ? document.getElementsByClassName("details")[0].submit() : null
+
+    })
+  
+
+  </script>
+</body>
+
+</html>
