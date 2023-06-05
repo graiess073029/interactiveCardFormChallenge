@@ -4,9 +4,9 @@ const path = require("path")
 
 const app = express()
 
+app.use(express.static(path.join(__dirname + "public")))
 app.use(bodyParser.urlencoded({extended : false}))
 app.use(bodyParser.json())
-app.use(express.static("public"))
 app.get("/",(req,res)=> res.redirect("/index.html"))
 app.get("/index.html", (req, res) => res.status(200).sendFile(path.join(__dirname + "/public/views/index.html")))
 app.post("/thank.html", (req, res) => {
