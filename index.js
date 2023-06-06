@@ -25,6 +25,7 @@ app.post("/thank.html", (req, res) => {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="../styles.css">
+            <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
             <title>Frontend Mentor | Interactive card details form</title>
         </head>
         <body>
